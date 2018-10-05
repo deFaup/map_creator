@@ -98,16 +98,18 @@ int* new_column_index(int* y, int width) {
 		/* If you make one you go right and then you have p*100 % of chances to make one again
 		but if you don't then you go left and you have p*100 % of chances to make zero again
 		*/
-		if (int a = Bernoulli(p) == 1) {
+		int a = Bernoulli(p);
+		printf("\t bern_output = %d ", a);
+		if ( a == 1) {
 			*y = *y + 1;
 			p = 0.7;
-			printf("and p=%.1f so bern_output = %d\n", p, a);
-			//printf("p= %f\n", p);
+			printf("and p=%.1f\n",p);
 		}
 		else {
 			*y--;
 			p = 0.3;
-			printf("and p=%.1f so bern_output = %d\n", p, a);
+			printf("and p=%.1f\n", p);
+//			printf("and p=%.1f so bern_output = %d\n", p, a);
 			//printf("p= %f\n", p);
 		}
 	}
